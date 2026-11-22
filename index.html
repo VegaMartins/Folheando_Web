@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Folheando Web V1</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="cabecalho_conteudo">
+      <div class="logo">
+        <h1>Folheando</h1>
+        <p>Minha estante de livros</p>
+      </div>
+      <div class="busca">  
+        <label for="busca">Buscar na estante</label>
+        <input id="busca" type="search" placeholder="Título ou autor">
+      </div>
+    </div>
+  </header>
+  
+  <main class="conteudo">
+    <section class="painel">
+      <h2>Adicionar um livro</h2>
+      <form class="formulario" id="form-livro">
+        <div class="campo">
+          <label for="titulo">Título</label>
+          <input id="titulo" type="text" placeholder="Nome do livro" required>
+        </div>
+        <div class="campo">
+          <label for="autor">Autor</label>
+          <input id="autor" type="text" placeholder="Nome do autor">
+        </div>
+        <div class="campo">
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="quero-ler">Quero ler</option>
+            <option value="lendo">Lendo</option>
+            <option value="lido">Lido</option>
+          </select>
+        </div>
+        <button type="submit">Adicionar livro</button>
+      </form>
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="painel">
+      <div class="estante_cabecalho">
+        <div>
+          <h2>Minha estante</h2>
+          <!-- <p class="texto-suave"></p> -->
+        </div>
+        <span class="contador" id="contador">5 livros</span>
+      </div>
+      <nav class="filtros" id="filtros" aria-label="Filtrar livros por status">
+        <button class="filtro filtro-ativo" type="button" data-filtro="todos">Todos</button>
+        <button class="filtro" type="button" data-filtro="lendo">Lendo</button>
+        <button class="filtro" type="button" data-filtro="quero-ler">Quero ler</button>
+        <button class="filtro" type="button" data-filtro="lido">Lidos</button>
+      </nav>
+
+      <h3 class="subtitulo">Livros cadastrados</h3>
+      <ul class="livros" id="lista-livros">
+        <li class="livro" data-status="lido">
+          <h4>Nome do Livro</h4><p>Autor: Autor</p><p>Status: Lido</p>
+        </li>
+        <li class="livro" data-status="lido">
+          <h4>Nome do Livro</h4><p>Autor: Autor</p><p>Status: Lido</p>
+        </li>
+        <li class="livro" data-status="quero-ler">
+          <h4>Nome do Livro</h4><p>Autor: Autor</p><p>Status: Quero ler</p>
+        </li>
+        <li class="livro" data-status="lendo">
+          <h4>Nome do Livro</h4><p>Autor: Autor</p><p>Status: Lendo</p>
+        </li>
+        <li class="livro" data-status="quero-ler">
+          <h4>Nome do Livro</h4><p>Autor: Autor</p><p>Status: Quero ler</p>
+        </li>
+      </ul>
+      <p id="vazio" class="texto-suave" hidden>Nenhum livro encontrado.</p>
+    </section>
+</main>
+</body>
+</html>

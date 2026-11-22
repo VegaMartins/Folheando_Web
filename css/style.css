@@ -1,0 +1,181 @@
+:root { /* configurações gerais */
+  font-family: Arial, Helvetica, sans-serif;
+  color: #292722; 
+  background: #f4f2ed;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; } /* * aplica a todos os elem, border-box coloca padding e borda dentro da larg e da alt definidas */
+
+body { /* aplica na página inteira */
+  margin: 0;
+  min-width: 320px;
+  line-height: 1.5;
+}
+
+.cabecalho { 
+  background: #fff;
+  border-bottom: 1px solid #ddd9d0;
+}
+
+.cabecalho_conteudo { 
+  width: min(100% - 40px, 1040px);  /* escolhe o menor valor entre a largura disponível menos 40px e 1040px */ 
+  min-height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* estiliza o logo */ 
+.logo h1 { margin: 0; font-size: 1.8rem; }
+.logo p { margin: 2px 0 0; color: #3a3a85; }
+
+.busca { width: min(100%, 320px); } 
+.busca label, .campo label { /* mesmas regras a dois tipos de rótulo*/ 
+  display: block;
+  margin-bottom: 6px;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+input {  /* estiliza campos de texto*/ 
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px; 
+  border: 1px solid #c9c5bc;
+  border-radius: 5px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+/* estado para quando o campo está selecionado */ 
+input:focus { outline: 2px solid #44435b; outline-offset: 1px; } 
+
+/* estiliza a area principal*/ 
+.conteudo { 
+  width: min(100% - 40px, 1040px);
+  margin: 32px auto;
+  display: grid; /* organiza as seções em grade*/ 
+  gap: 22px;
+}
+
+.painel {
+  padding: 24px;
+  border: 1px solid #e0ddd5;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* estiliza h2 e h3*/ 
+h2 { margin: 0 0 18px; font-size: 1.3rem; }
+h3 { font-size: 1rem; }
+
+.formulario { /* organização do formulário */ 
+  display: grid;
+  grid-template-columns: 1fr 1fr auto; /* 1fr uma fração do espaço disponível */
+  align-items: end;
+  gap: 14px;
+}
+
+button {  /* estilização dos botoes */ 
+  min-height: 42px;
+  padding: 9px 16px;
+  border: 1px solid #44435b;
+  border-radius: 5px;
+  background: #3a3a85;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+}
+
+/* estilização do cabeçalho da estante */
+.estante_cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.estante_cabecalho h2 { margin-bottom: 2px; }
+/* .texto-suave { margin: 0; color: #77736c; } */
+.contador { color: #77736c; font-size: .9rem; }
+
+/* estilização filtros */
+.filtros {
+  display: flex; /* lado a lado*/
+  flex-wrap: wrap; /* podem quebrar para outra linha se faltar espaço */
+  gap: 8px;
+  margin: 22px 0;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8e5de;
+}
+
+.filtro { /* estilo individual botoes de filtto */
+  padding: 6px 12px;
+  border: 1px solid #d8d4cb;
+  border-radius: 20px;
+  background: #faf9f6;
+  color: #514e47;
+  font-size: .9rem;
+}
+ /* estilo botão clicado */
+.filtro-ativo { border-color: #44435b; background: #3a3a85; color: #fff; }
+.subtitulo { margin: 0 0 14px; }
+
+/* estilização cartões de livros */
+.livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* cria colunas repetidas, tenta encaixar o máx possível delas */
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.livro { /* estiliza dentro dos cartões */
+  min-height: 155px;
+  padding: 16px;
+  border: 1px solid #e0ddd5;
+  border-radius: 6px;
+  background: #faf9f6;
+}
+
+.livro h4 { margin: 0 0 12px; font-size: 1rem; }
+.livro p { margin: 5px 0; color: #69655e; font-size: .9rem; }
+/* .painel--etapas ol { margin-bottom: 0; padding-left: 22px; }
+.painel--etapas li { margin: 6px 0; } */
+
+
+/* regras de responsividade */
+@media (max-width: 680px) {
+  .cabecalho_conteudo { width: min(100% - 28px, 1040px); padding: 18px 0; align-items: stretch; flex-direction: column; gap: 16px; }
+  .busca { width: 100%; }
+  .conteudo { width: min(100% - 28px, 1040px); margin: 20px auto; gap: 14px; }
+  .painel { padding: 18px; }
+  .formulario { grid-template-columns: 1fr; }
+  .estante_cabecalho { align-items: flex-start; }
+}
+
+.formulario { grid-template-columns: 1fr 1fr 1fr auto; }
+select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid #c9c5bc;
+  border-radius: 5px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+select:focus { outline: 2px solid #44435b; outline-offset: 1px; }
+.filtro { cursor: pointer; font-family: inherit; } /* cursor vira uma mãozinha ao passar sobre um filtro */
+.mensagem { min-height: 1.5em; margin: 10px 0 0; color: #3a3a85; font-size: .9rem; }
+[hidden] { display: none !important; }
+
+@media (max-width: 680px) {
+  .formulario { grid-template-columns: 1fr; }
+}
